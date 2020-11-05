@@ -56,6 +56,12 @@ function addItem(itemValue) {
 	);
 	editButton.addEventListener("click", () => editItem(input));
 	deleteButton.addEventListener("click", () => deleteItem(todoItem));
+
+	input.addEventListener("keydown", (e) => {
+		if (e.keyCode == 13) {
+			editItem(input);
+		}
+	});
 }
 
 function checkItem() {
@@ -68,7 +74,7 @@ function checkItem() {
 }
 addButton.addEventListener("click", checkItem);
 
-window.addEventListener("keydown", (e) => {
+input.addEventListener("keydown", (e) => {
 	if (e.keyCode == 13) {
 		checkItem();
 	}
